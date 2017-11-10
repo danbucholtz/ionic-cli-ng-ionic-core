@@ -1,22 +1,35 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 import { HomePage } from '../pages/home/home';
 @Component({
-  templateUrl: 'app.html'
+  selector: 'ng-start',
+  template: `
+  <ion-app>
+    <ion-nav-controller></ion-nav-controller>
+    <ion-nav #nav></ion-nav>
+  </ion-app>
+  `
 })
 export class MyApp {
-  rootPage:any = HomePage;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-    platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
-      splashScreen.hide();
+  @ViewChild('nav', { read: ElementRef}) navElementRef: ElementRef;
+
+  constructor() {
+  }
+
+  ngAfterViewInit() {
+    hydrateNav(this.navElementRef.nativeElement).then(() => {
+      this.navElementRef.nativeElement.setRoot(HomePage);
     });
   }
 }
 
+function hydrateNav(element: any) {
+  return new Promise((resolve, reject) => {
+    element.componentOnReady(() => {
+      setTimeout(() => {
+        resolve();
+      }, 1);
+    });
+  });
+}

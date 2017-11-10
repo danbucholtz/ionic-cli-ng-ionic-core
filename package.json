@@ -34,5 +34,9 @@
     "@ionic/app-scripts": "3.1.0",
     "typescript": "2.4.2"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "config": {
+    "ionic_copy": "./scripts/copy.js",
+    "ionic_parse_deeplinks": "false"
+  }
 }
