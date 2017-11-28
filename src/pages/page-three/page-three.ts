@@ -5,9 +5,9 @@ import { Component } from '@angular/core';
   template: `
 <ion-page>
   <ion-header>
-    <ion-navbar>
+    <ion-toolbar>
       <ion-title>Page Three</ion-title>
-    </ion-navbar>
+    </ion-toolbar>
   </ion-header>
   <ion-content>
     Page Three

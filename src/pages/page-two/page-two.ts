@@ -7,9 +7,9 @@ import { PageThree } from '../page-three/page-three';
   template: `
 <ion-page>
   <ion-header>
-    <ion-navbar>
+    <ion-toolbar>
       <ion-title>Page Two</ion-title>
-    </ion-navbar>
+    </ion-toolbar>
   </ion-header>
   <ion-content>
     Page Two
